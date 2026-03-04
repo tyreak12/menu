@@ -1,0 +1,34 @@
+﻿:root {
+  --menu-bg: #f7f4ee;
+  --menu-card: #fffdfa;
+  --menu-ink: #25211d;
+  --menu-accent: #7a3415;
+}
+
+body {
+  background: radial-gradient(circle at top, #fff7ea 0%, var(--menu-bg) 55%);
+  color: var(--menu-ink);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.eyebrow {
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--menu-accent);
+  font-weight: 700;
+}
+
+.menu-card {
+  background-color: var(--menu-card);
+  border: 1px solid #f0e6d7;
+}
+
+.tracking {
+  letter-spacing: 0.04em;
+}
+
+.price {
+  color: var(--menu-accent);
+  font-weight: 700;
+  white-space: nowrap;
+}

@@ -1,0 +1,35 @@
+﻿---
+layout: layout.njk
+---
+<header class="mb-5 text-center">
+  <p class="eyebrow mb-2">{{ site.restaurantName }}</p>
+  <h1 class="display-5 fw-semibold mb-3">{{ site.menuHeading }}</h1>
+  <p class="text-secondary mb-0">Updated {{ menu.generatedAt }}</p>
+</header>
+
+<div class="row g-4">
+  {% for section in menu.sections %}
+    <div class="col-12 col-lg-6">
+      <section class="card menu-card shadow-sm h-100">
+        <div class="card-body">
+          <h2 class="h4 mb-3 border-bottom pb-2">{{ section.name }}</h2>
+          <div class="vstack gap-3">
+            {% for item in section.items %}
+              <article>
+                <div class="d-flex justify-content-between align-items-baseline gap-2">
+                  <h3 class="h6 mb-1 text-uppercase tracking">{{ item.name }}</h3>
+                  {% if item.price %}
+                    <span class="price">{{ item.price }}</span>
+                  {% endif %}
+                </div>
+                {% if item.description %}
+                  <p class="text-secondary mb-0 small">{{ item.description }}</p>
+                {% endif %}
+              </article>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    </div>
+  {% endfor %}
+</div>
