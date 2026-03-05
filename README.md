@@ -22,6 +22,12 @@ $env:MENU_CSV_URL="https://docs.google.com/spreadsheets/d/<SHEET_ID>/gviz/tq?tqx
 npm run build
 ```
 
+## Validate fail-loud malformed CSV handling
+
+```powershell
+npm run validate:data
+```
+
 ## Offline/local CSV testing
 
 ```powershell
@@ -33,9 +39,14 @@ npm run build
 
 1. `scripts/build-menu-data.mjs` fetches the CSV from Google Sheets.
 2. CSV is parsed and normalized defensively.
-3. Strict validation fails loudly with row-level errors where possible.
+3. Malformed CSV/data fails loudly with row-level errors where possible.
 4. Output is written to `src/_data/menu.json`.
-5. Templates only render normalized JSON.
+5. Templates render normalized JSON only.
+
+## Notes
+
+- Edit source files in `src/`; do not edit generated files in `_site/`.
+- For GitHub Pages project sites, asset URLs are path-prefix safe.
 
 ## GitHub Pages deploy
 
@@ -43,4 +54,6 @@ Workflow: `.github/workflows/deploy-pages.yml`
 
 - Runs on push to `main`
 - Requires repository secret `MENU_CSV_URL`
+- Fails fast if required secret is missing
+- Runs malformed-CSV validation before build
 - Builds `_site` and deploys to GitHub Pages

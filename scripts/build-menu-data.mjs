@@ -12,6 +12,10 @@ function logInfo(message) {
   console.log(`[menu-data] ${message}`);
 }
 
+function logWarn(message) {
+  console.warn(`[menu-data] ${message}`);
+}
+
 function fail(message) {
   throw new Error(`[menu-data] ${message}`);
 }
@@ -158,7 +162,7 @@ function buildMenu(rows, sourceLabel) {
     .sort((a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" }));
 
   if (!sections.length) {
-    fail("No available menu items found after normalization.");
+    logWarn("No available menu items found after normalization. Generating an empty menu payload.");
   }
 
   return {

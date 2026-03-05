@@ -1,0 +1,3 @@
+﻿category,name,description,price,sort,available
+Starters,House Chips,Sea salt and herbs,$6,1,true
+,Missing Category Item,This row should fail,$8,2,true

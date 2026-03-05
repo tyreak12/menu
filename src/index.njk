@@ -4,31 +4,47 @@ layout: layout.njk
 <header class="mb-5 text-center">
   <p class="eyebrow mb-2">{{ site.restaurantName }}</p>
   <h1 class="display-5 fw-semibold mb-3">{{ site.menuHeading }}</h1>
+  {% if menu.generatedAt %}
+    <p class="text-secondary mb-0">Updated {{ menu.generatedAt | formatIsoDateTime }}</p>
+  {% endif %}
 </header>
 
-<div class="row g-4">
-  {% for section in menu.sections %}
-    <div class="col-12 col-lg-6">
-      <section class="card menu-card shadow-sm h-100">
-        <div class="card-body">
-          <h2 class="h4 mb-3 border-bottom pb-2">{{ section.name }}</h2>
-          <div class="vstack gap-3">
-            {% for item in section.items %}
-              <article>
-                <div class="d-flex justify-content-between align-items-baseline gap-2">
-                  <h3 class="h6 mb-1 text-uppercase tracking">{{ item.name }}</h3>
-                  {% if item.price %}
-                    <span class="price">{{ item.price }}</span>
-                  {% endif %}
-                </div>
-                {% if item.description %}
-                  <p class="text-secondary mb-0 small">{{ item.description }}</p>
-                {% endif %}
-              </article>
-            {% endfor %}
+{% if menu.sections and menu.sections.length %}
+  <div class="row g-4">
+    {% for section in menu.sections %}
+      <div class="col-12 col-lg-6">
+        <section class="card menu-card shadow-sm h-100">
+          <div class="card-body">
+            <h2 class="h4 mb-3 border-bottom pb-2">{{ section.name }}</h2>
+            {% if section.items and section.items.length %}
+              <div class="vstack gap-3">
+                {% for item in section.items %}
+                  <article>
+                    <div class="d-flex justify-content-between align-items-baseline gap-2">
+                      <h3 class="h6 mb-1 text-uppercase tracking">{{ item.name }}</h3>
+                      {% if item.price %}
+                        <span class="price">{{ item.price }}</span>
+                      {% endif %}
+                    </div>
+                    {% if item.description %}
+                      <p class="text-secondary mb-0 small">{{ item.description }}</p>
+                    {% endif %}
+                  </article>
+                {% endfor %}
+              </div>
+            {% else %}
+              <p class="text-secondary mb-0">No items are currently available in this section.</p>
+            {% endif %}
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <section class="card menu-card shadow-sm">
+    <div class="card-body text-center py-5">
+      <h2 class="h4 mb-2">Menu is being updated</h2>
+      <p class="text-secondary mb-0">Please check back soon for the latest menu items.</p>
     </div>
-  {% endfor %}
-</div>
+  </section>
+{% endif %}

@@ -9,6 +9,7 @@
   },
   "scripts": {
     "prebuild": "node scripts/build-menu-data.mjs",
+    "validate:data": "node scripts/validate-bad-csv.mjs",
     "dev": "npm run prebuild && eleventy --serve --watch",
     "build": "npm run prebuild && eleventy"
   },

@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MENU_CSV_URL: ${{ secrets.MENU_CSV_URL }}
+      ELEVENTY_PATH_PREFIX: /${{ github.event.repository.name }}/
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,8 +30,18 @@ jobs:
           node-version: 22.19.0
           cache: npm
 
+      - name: Check required secrets
+        run: |
+          if [ -z "${MENU_CSV_URL}" ]; then
+            echo "MENU_CSV_URL is required but missing. Add it in Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+
       - name: Install dependencies
         run: npm ci
+
+      - name: Validate malformed CSV behavior
+        run: npm run validate:data
 
       - name: Build site
         run: npm run build
@@ -53,3 +64,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
