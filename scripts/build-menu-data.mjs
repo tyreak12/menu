@@ -77,6 +77,26 @@ function parseCsv(rawCsv) {
   }
 }
 
+function startsWithAsciiLetter(value) {
+  return /^[A-Za-z]/.test(String(value || "").trim());
+}
+
+function compareAlphaFirst(a, b) {
+  const aText = String(a || "").trim();
+  const bText = String(b || "").trim();
+  const aIsAlpha = startsWithAsciiLetter(aText);
+  const bIsAlpha = startsWithAsciiLetter(bText);
+
+  if (aIsAlpha !== bIsAlpha) {
+    return aIsAlpha ? -1 : 1;
+  }
+
+  return aText.localeCompare(bText, "en", {
+    sensitivity: "base",
+    numeric: true
+  });
+}
+
 function buildMenu(rows, sourceLabel) {
   if (!rows.length) {
     fail("CSV is empty.");
@@ -155,11 +175,11 @@ function buildMenu(rows, sourceLabel) {
       items: sectionItems
         .sort((a, b) => {
           if (a.sort !== b.sort) return a.sort - b.sort;
-          return a.name.localeCompare(b.name, "en", { sensitivity: "base" });
+          return compareAlphaFirst(a.name, b.name);
         })
         .map(({ sort, ...item }) => item)
     }))
-    .sort((a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" }));
+    .sort((a, b) => compareAlphaFirst(a.name, b.name));
 
   if (!sections.length) {
     logWarn("No available menu items found after normalization. Generating an empty menu payload.");
