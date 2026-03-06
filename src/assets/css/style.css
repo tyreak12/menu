@@ -34,7 +34,8 @@ body {
   font-weight: 700;
   white-space: normal;
   line-height: 1.25;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .menu-card-body {
@@ -49,6 +50,8 @@ body {
   font-size: 0.92rem;
   margin: 0;
   min-width: 0;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .menu-item-description {
@@ -57,7 +60,7 @@ body {
 
 .menu-item-head {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(6rem, 40%);
+  grid-template-columns: minmax(10rem, 1fr) minmax(7rem, 14ch);
   align-items: start;
   gap: 0.5rem;
 }
@@ -91,6 +94,7 @@ body {
 
   .menu-item-head {
     align-items: start;
+    grid-template-columns: minmax(8.5rem, 1fr) minmax(6.5rem, 12ch);
   }
 
   .menu-item-name {
@@ -101,7 +105,7 @@ body {
 
   .price {
     font-size: 0.92rem;
-    max-width: 14ch;
+    max-width: 12ch;
   }
 
   .menu-item-description {
