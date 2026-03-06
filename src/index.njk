@@ -20,7 +20,7 @@ layout: layout.njk
               <div class="vstack gap-3">
                 {% for item in section.items %}
                   <article class="menu-item">
-                    <div class="menu-item-head d-flex justify-content-between align-items-baseline gap-2">
+                    <div class="menu-item-head">
                       <h3 class="h6 mb-1 text-uppercase tracking menu-item-name">{{ item.name }}</h3>
                       {% if item.price %}
                         <span class="price">{{ item.price }}</span>
