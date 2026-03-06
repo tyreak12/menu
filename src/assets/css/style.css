@@ -32,7 +32,9 @@ body {
 .price {
   color: var(--menu-accent);
   font-weight: 700;
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
 .menu-card-body {
@@ -55,14 +57,15 @@ body {
 
 .menu-item-head {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: baseline;
+  grid-template-columns: minmax(0, 1fr) minmax(6rem, 40%);
+  align-items: start;
   gap: 0.5rem;
 }
 
 .menu-item .price {
   justify-self: end;
   text-align: right;
+  max-width: 18ch;
 }
 
 @media (max-width: 575.98px) {
@@ -98,6 +101,7 @@ body {
 
   .price {
     font-size: 0.92rem;
+    max-width: 14ch;
   }
 
   .menu-item-description {
