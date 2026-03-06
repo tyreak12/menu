@@ -5,7 +5,7 @@ layout: layout.njk
   <p class="eyebrow mb-2">{{ site.restaurantName }}</p>
   <h1 class="display-5 fw-semibold mb-3">{{ site.menuHeading }}</h1>
   {% if menu.generatedAt %}
-    <p class="text-secondary mb-0">Updated {{ menu.generatedAt | formatIsoDateTime }}</p>
+    <p class="text-secondary mb-0">Updated {{ menu.generatedAt | formatIsoDateTime(site.timeZone) }}</p>
   {% endif %}
 </header>
 
@@ -48,3 +48,4 @@ layout: layout.njk
     </div>
   </section>
 {% endif %}
+

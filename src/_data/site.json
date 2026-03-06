@@ -1,5 +1,6 @@
 ﻿{
   "restaurantName": "ETHNL",
   "menuHeading": "ETHNL Menu",
-  "currency": "USD"
+  "currency": "USD",
+  "timeZone": "America/Chicago"
 }
