@@ -18,9 +18,14 @@ layout: layout.njk
             <h2 class="h4 mb-3 border-bottom pb-2 menu-section-title">{{ section.name }}</h2>
             {% if section.items and section.items.length %}
               <div class="vstack gap-3">
+              
                 {% for item in section.items %}
                   <article class="menu-item">
+                  {% if item.description %}
+                      <p class="text-secondary mb-0 small menu-item-description">{{ item.description }}</p>
+                    {% endif %}
                     <div class="menu-item-head">
+                    
                       <h3 class="h6 mb-1 text-uppercase tracking menu-item-name">{{ item.name }}</h3>
                       {% if item.priceParts and item.priceParts.length > 1 %}
                         <ul class="price-list list-unstyled mb-0">
@@ -32,9 +37,7 @@ layout: layout.njk
                         <span class="price">{{ item.price }}</span>
                       {% endif %}
                     </div>
-                    {% if item.description %}
-                      <p class="text-secondary mb-0 small menu-item-description">{{ item.description }}</p>
-                    {% endif %}
+                    
                   </article>
                 {% endfor %}
               </div>

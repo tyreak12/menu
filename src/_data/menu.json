@@ -1,6 +1,6 @@
 {
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRMdb3rbXLhVTZS_yxra4rP9msJLzD4ZeEEQIWJ8vk1uuN5gq0OpAHcxfAQzhSF9Ej1x1SFm_q5nMS_/pub?output=csv",
-  "generatedAt": "2026-03-07T02:15:48.489Z",
+  "generatedAt": "2026-03-07T03:16:21.414Z",
   "sections": [
     {
       "name": "Flower",
@@ -51,10 +51,10 @@
         {
           "category": "🍄",
           "name": "Penis Envy",
-          "description": "3.5g",
-          "price": "$40.00",
+          "description": "",
+          "price": "$40/3.5g",
           "priceParts": [
-            "$40.00"
+            "$40/3.5g"
           ],
           "available": true
         }
