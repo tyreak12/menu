@@ -7,6 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, "..");
 const outPath = path.join(rootDir, "src", "_data", "menu.json");
+const PRICE_DELIMITER = "|";
 
 function logInfo(message) {
   console.log(`[menu-data] ${message}`);
@@ -75,6 +76,24 @@ function parseCsv(rawCsv) {
   } catch (error) {
     fail(`CSV parse failed: ${error.message}`);
   }
+}
+
+function parsePriceParts(value, rowNumber) {
+  const raw = String(value || "").trim();
+  if (!raw) return [];
+
+  if (!raw.includes(PRICE_DELIMITER)) {
+    return [raw];
+  }
+
+  const parts = raw.split(PRICE_DELIMITER).map((part) => part.trim());
+  if (parts.some((part) => !part)) {
+    fail(
+      `Invalid price delimiter usage at row ${rowNumber}. Use "${PRICE_DELIMITER}" between non-empty values (example: $10|$18|$25).`
+    );
+  }
+
+  return parts;
 }
 
 function startsWithAsciiLetter(value) {
@@ -151,6 +170,7 @@ function buildMenu(rows, sourceLabel) {
       name: record.name,
       description: record.description || "",
       price: record.price || "",
+      priceParts: parsePriceParts(record.price, rowNumber),
       sort: toSort(record.sort, rowNumber),
       available: toBoolean(record.available, rowNumber)
     };

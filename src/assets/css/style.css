@@ -71,6 +71,14 @@ body {
   max-width: 18ch;
 }
 
+.price-list {
+  justify-self: end;
+  text-align: right;
+  display: grid;
+  gap: 0.1rem;
+  max-width: 20ch;
+}
+
 @media (max-width: 575.98px) {
   main.container {
     padding-top: 1.25rem !important;
@@ -105,6 +113,10 @@ body {
 
   .price {
     font-size: 0.92rem;
+    max-width: 12ch;
+  }
+
+  .price-list {
     max-width: 12ch;
   }
 

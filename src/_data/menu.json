@@ -1,53 +1,61 @@
 {
-  "source": "C:\\Users\\Sweet\\Desktop\\sheets-menu\\menu\\src\\_data\\menu.sample.csv",
-  "generatedAt": "2026-03-06T03:00:51.085Z",
+  "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRMdb3rbXLhVTZS_yxra4rP9msJLzD4ZeEEQIWJ8vk1uuN5gq0OpAHcxfAQzhSF9Ej1x1SFm_q5nMS_/pub?output=csv",
+  "generatedAt": "2026-03-07T02:15:48.489Z",
   "sections": [
     {
-      "name": "Desserts",
+      "name": "Flower",
       "items": [
         {
-          "category": "Desserts",
-          "name": "Chocolate Torte",
-          "description": "Berry compote",
-          "price": "$9",
+          "category": "Flower",
+          "name": "Candy Cake",
+          "description": "Lows",
+          "price": "$100/oz",
+          "priceParts": [
+            "$100/oz"
+          ],
+          "available": true
+        },
+        {
+          "category": "Flower",
+          "name": "Perm Marker BX1",
+          "description": "Exotic",
+          "price": "$250/oz|$140/14g|$70/7g|$40/3.5g",
+          "priceParts": [
+            "$250/oz",
+            "$140/14g",
+            "$70/7g",
+            "$40/3.5g"
+          ],
           "available": true
         }
       ]
     },
     {
-      "name": "Mains",
+      "name": "Vape",
       "items": [
         {
-          "category": "Mains",
-          "name": "Veggie Bowl",
-          "description": "Quinoa and seasonal vegetables",
-          "price": "$16",
-          "available": true
-        },
-        {
-          "category": "Mains",
-          "name": "Grilled Chicken",
-          "description": "Charred lemon and greens",
-          "price": "$18",
+          "category": "Vape",
+          "name": "**COMING SOON**",
+          "description": "Live resin - 1g",
+          "price": "$60.00",
+          "priceParts": [
+            "$60.00"
+          ],
           "available": true
         }
       ]
     },
     {
-      "name": "Starters",
+      "name": "🍄",
       "items": [
         {
-          "category": "Starters",
-          "name": "Tomato Bisque",
-          "description": "Roasted garlic cream",
-          "price": "$8",
-          "available": true
-        },
-        {
-          "category": "Starters",
-          "name": "House Chips",
-          "description": "Sea salt and herbs",
-          "price": "$6",
+          "category": "🍄",
+          "name": "Penis Envy",
+          "description": "3.5g",
+          "price": "$40.00",
+          "priceParts": [
+            "$40.00"
+          ],
           "available": true
         }
       ]

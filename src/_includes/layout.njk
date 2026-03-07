@@ -10,6 +10,18 @@
   <body>
     <main class="container py-5">
       {{ content | safe }}
+      {% if site.todayHours %}
+        <section class="hours mt-4 mt-md-5">
+          <h2 class="h6 mb-2">Today's Hours ({{ site.todayHours.day }})</h2>
+          <p class="mb-0 text-secondary">
+            {% if site.todayHours.open == "Closed" %}
+              Closed
+            {% else %}
+              {{ site.todayHours.open }} - {{ site.todayHours.close }}
+            {% endif %}
+          </p>
+        </section>
+      {% endif %}
     </main>
   </body>
 </html>

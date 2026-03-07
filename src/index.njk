@@ -22,7 +22,13 @@ layout: layout.njk
                   <article class="menu-item">
                     <div class="menu-item-head">
                       <h3 class="h6 mb-1 text-uppercase tracking menu-item-name">{{ item.name }}</h3>
-                      {% if item.price %}
+                      {% if item.priceParts and item.priceParts.length > 1 %}
+                        <ul class="price-list list-unstyled mb-0">
+                          {% for part in item.priceParts %}
+                            <li class="price">{{ part }}</li>
+                          {% endfor %}
+                        </ul>
+                      {% elif item.price %}
                         <span class="price">{{ item.price }}</span>
                       {% endif %}
                     </div>
